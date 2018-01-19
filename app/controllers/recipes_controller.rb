@@ -10,7 +10,6 @@ class RecipesController < ApplicationController
                   }
   end
 
-
   def index
     recipes = Recipe.all
     render json: recipes.as_json
@@ -33,15 +32,23 @@ class RecipesController < ApplicationController
     render json: recipe.as_json
   end
 
-  def update
+  def update     #this is very similar to create
     recipe = Recipe.find(params[:id])
+
     recipe.title = params[:title]
     recipe.chef = params[:chef]
     recipe.ingredients = params[:ingredients]
-    recipe.directions = prarams[:directions]
+    recipe.directions = params[:directions]
     recipe.save
 
     render json: recipe.as_json
+  end
+
+  def destroy
+    recipe = Recipe.find(params[:id])
+    recipe.destroy
+    render json: {message: "Succesfully destroyed Recipe ##{recipe.id}"}
+    
   end
 
 end
