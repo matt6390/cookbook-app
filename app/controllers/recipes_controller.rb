@@ -33,7 +33,24 @@ class RecipesController < ApplicationController
     render json: recipe.as_json
   end
 
+  def update
+    recipe = Recipe.find(params[:id])
+    recipe.title = params[:title]
+    recipe.chef = params[:chef]
+    recipe.ingredients = params[:ingredients]
+    recipe.directions = prarams[:directions]
+    recipe.save
+
+    render json: recipe.as_json
+  end
+
 end
+
+
+
+
+
+
 
 
 
