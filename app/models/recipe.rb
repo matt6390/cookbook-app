@@ -39,3 +39,12 @@ class Recipe < ApplicationRecord
 
 
 end
+
+
+
+
+
+
+
+
+
