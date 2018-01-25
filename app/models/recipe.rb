@@ -2,8 +2,8 @@ class Recipe < ApplicationRecord
 
   def friendly_prep_time
 
-    hours = prep_time / 60 
-    minutes = prep_time % 60
+    hours = prep_time.to_i / 60 
+    minutes = prep_time.to_i % 60
     time_string = ""
     
     time_string += "#{hours} #{"Hour".pluralize(hours)}" if hours > 0
