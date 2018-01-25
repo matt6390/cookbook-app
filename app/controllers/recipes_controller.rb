@@ -21,15 +21,15 @@ class RecipesController < ApplicationController
                               "%#{search_term}%",
                               "%#{search_term}%")
     end
+
+    sort_attribute = params[:sort]
+    if sort_attribute
+      recipes = recipes.order(sort_attribute => :asc)
+    end
+
     render json: recipes.as_json
 
   end
-
-
-
-
-
-
 
 
 
